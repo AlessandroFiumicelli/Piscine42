@@ -1,12 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_concat_params.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alfiumic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/10 14:23:40 by alfiumic          #+#    #+#             */
+/*   Updated: 2018/09/10 14:50:48 by alfiumic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_get_size(int argc, char **argv)
+#include <stdlib.h>
+
+int		ft_get_size(int argc, char **argv)
 {
 	int	i;
 	int	j;
-	int	lenght;
+	int	length;
 
-	i = 0;
-	lenght = 0;
+	i = 1;
+	length = 0;
 	if (argc < 2)
 		return (0);
 	while (i < argc)
@@ -14,29 +27,30 @@ int	ft_get_size(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			lenght++;
+			length++;
 			j++;
 		}
 		i++;
 	}
-	lenght += argc - 2;
-	return (lenght);
+	if (argc > 2)
+		length += argc - 2;
+	return (length);
 }
 
 char	*ft_concat_params(int argc, char **argv)
 {
-	int	length;
+	int		length;
 	char	*str;
-	int	i;
-	int	j;
-	int	k;
+	int		i;
+	int		j;
+	int		k;
 
 	k = 0;
 	i = 1;
 	length = ft_get_size(argc, argv);
-	if(!(str = (char*)malloc(sizeof(char) * lenght)))
+	if (!(str = (char*)malloc(sizeof(char) * length + 1)))
 		return ("NULL");
-	while (i < argc - 1)
+	while (i < argc)
 	{
 		j = 0;
 		while (argv[i][j])
@@ -45,7 +59,7 @@ char	*ft_concat_params(int argc, char **argv)
 			j++;
 		}
 		if (i < argc - 1)
-			str[j] = '\n';
+			str[k++] = '\n';
 		i++;
 	}
 	str[k] = '\0';
