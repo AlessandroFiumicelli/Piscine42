@@ -6,7 +6,7 @@
 /*   By: alfiumic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 14:54:24 by alfiumic          #+#    #+#             */
-/*   Updated: 2018/09/11 15:24:13 by alfiumic         ###   ########.fr       */
+/*   Updated: 2018/09/11 16:30:48 by alfiumic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		ft_count_word(char *str)
 	}
 	return (num);
 }
+
 char	*ft_strncpy(char *dest, char *src, int size)
 {
 	int		i;
@@ -93,16 +94,10 @@ char	**ft__split_whitespaces(char *str)
 	{
 		if (!(matrix = (char*)malloc(sizeof(char) * ft_custom_strlen(str, lenword) + 1)))
 			return (0);
+		matrix[cnt] = ft_strncpy(matrix[cnt], &str[cnt], len);
 		cnt++;
 		lenword++;
 	}
+	matrix[cnt] = NULL;
 	return (matrix);
-}
-
-int		main(int argc, char **argv)
-{
-	if (argc != 2)
-		return (0);
-	printf("%d",ft_count_word(argv[1]));
-	return (0);
 }
