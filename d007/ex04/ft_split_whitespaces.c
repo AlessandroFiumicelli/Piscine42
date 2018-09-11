@@ -73,30 +73,30 @@ int		ft_custom_strlen(char *str, int word)
 		i++;
 		wrdlen++;
 	}
-	return (worlen);`
+	return (wrdlen);`
 }
 
 char	**ft__split_whitespaces(char *str)
 {
 	int		cnt;
 	int		n_word;
-	char	**matrix;
+	char		**matrix;
 	int		lenword;
+	int		i;
 
 	n_word = ft_count_word(str);
-	if (n_word == 0)
-		return ("NULL");
 	if (!(matrix = (char**)malloc(sizeof(**matrix) * n_word + 1)))
 		return (0);
-	cnt = 1;
-	lenword = 1;
+	cnt = 0;
+	i = 1;
 	while (cnt < n_word)
 	{
-		if (!(matrix = (char*)malloc(sizeof(char) * ft_custom_strlen(str, lenword) + 1)))
+		lenword = ft_custom_strlen(str, i);
+		if (!(matrix = (char*)malloc(sizeof(char) * lenword) + 1))
 			return (0);
-		matrix[cnt] = ft_strncpy(matrix[cnt], &str[cnt], len);
+		matrix[cnt] = ft_strncpy(matrix[cnt], &str[cnt], lenword);
 		cnt++;
-		lenword++;
+		i++;
 	}
 	matrix[cnt] = NULL;
 	return (matrix);
