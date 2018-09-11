@@ -40,7 +40,7 @@ int		ft_get_size(int argc, char **argv)
 char	*ft_concat_params(int argc, char **argv)
 {
 	int		length;
-	char	*str;
+	char		*str;
 	int		i;
 	int		j;
 	int		k;

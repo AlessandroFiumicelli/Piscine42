@@ -21,13 +21,14 @@ int		ft_count_word(char *str)
 	if (!str)
 		return (0);
 	while (str[cnt])
-	{
-		while (str[cnt] && (str[cnt] == ' ' || str[cnt] == '\t' || str[cnt] == '\v' || str[cnt] == '\n'))
-			cnt++;
-		while (str[cnt] && (str[cnt] != ' ' || str[cnt] != '\t' || str[cnt] != '\v' || str[cnt] != '\n'))
-			cnt++;
+	{ 
+		if (cnt == 0 && str[cnt] > 32)
+			num++;
+		else if (str[cnt] > 32 && str[cnt - 1] >= 9 && str[cnt - 1] <= 11)
+			num++;
+		else if (str[cnt] > 32 && str[cnt - 1] == 32)
+			num++;
 		cnt++;
-		num++;
 	}
 	return (num);
 }/*
@@ -51,7 +52,8 @@ char	**ft__split_whitespaces(char *str)
 	int		n_word;
 	char	**matrix;
 
-	n_word = ft_count_word(str);
+	t
+
 	if (n_word == 0)
 		return ("NULL");
 	matrix = (char **)malloc(sizeof(char *) * n_word + 1);
