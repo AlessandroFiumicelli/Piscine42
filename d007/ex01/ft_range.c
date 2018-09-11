@@ -6,7 +6,7 @@
 /*   By: alfiumic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 21:05:33 by alfiumic          #+#    #+#             */
-/*   Updated: 2018/09/08 21:41:18 by alfiumic         ###   ########.fr       */
+/*   Updated: 2018/09/11 13:58:07 by alfiumic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int		*ft_range(int min, int max)
 	average = max - min;
 	if ((!min) && (!max))
 		return (0);
-	if (average <= 0)
+	if (min >= max)
 		return (range);
-	i = 0;;
-	if(!(range = (int *)malloc(sizeof(*int) * average)))
+	i = 0;
+	if (!(range = (int *)malloc(sizeof(int) * average)))
 		return (0);
-	while (i < max)
+	while (i < average)
 	{
 		range[i] = min + i;
 		i++;
