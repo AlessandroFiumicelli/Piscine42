@@ -1,0 +1,6 @@
+Credentials cache: API:E0A4CE1B-D0E4-469D-888B-99C99DD5277B
+        Principal: alfiumic@42.FR
+
+		  Issued                Expires               Principal
+		  Aug 27 11:19:56 2018  Sep  3 11:19:56 2018  krbtgt/42.FR@42.FR
+		  Aug 27 11:21:10 2018  Sep  3 11:19:56 2018  host/vgs-fn1.42.fr@42.FR
