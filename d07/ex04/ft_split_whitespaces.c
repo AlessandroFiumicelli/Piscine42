@@ -78,7 +78,8 @@ char	**ft_split_whitespaces(char *str)
 				str[cnt] == '\v' || str[cnt] == '\t' || str[cnt] == '\n'))
 			cnt++;
 		len = ft_custom_strlen(&str[cnt]);
-		matrix[ind] = (char*)malloc((sizeof(char) * len) + 1);
+		if (!(matrix[ind] = (char*)malloc(sizeof(char*) * len + 1)))
+			return (NULL);
 		matrix[ind] = ft_strncpy(matrix[ind], &str[cnt], len);
 		ind++;
 		cnt += len;
