@@ -19,7 +19,7 @@ all: $(NAME)
 $(NAME):
 	gcc -Wall -Wextra -Werror $(SOURCE) -o $(NAME)
 
-fclean:
+fclean: 
 	/bin/rm -f $(NAME)
 
 clean: fclean all

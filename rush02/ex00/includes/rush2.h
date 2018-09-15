@@ -14,11 +14,11 @@
 # define RUSH2_H
 #include <unistd.h>
 #include <stdlib.h>
-# define TRUE			    1
-# define FALSE			  0
+# define TRUE			1
+# define FALSE			0
 # define BUFF_SIZE		512
 
-typedef int				t_bool;
+typedef int	t_bool;
 
 char	*ft_get_input(void);
 void	ft_get_dimentions(char *str, int *x, int *y);
@@ -29,7 +29,7 @@ void	ft_putstr(char *str);
 void	ft_putnbr(int nbr);
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strcat(char *dest, char *src);
-int		ft_strcmp(char *s1, char *s2);
+int	ft_strcmp(char *s1, char *s2);
 void	ft_print_error(void);
 
 #endif

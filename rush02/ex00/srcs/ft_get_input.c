@@ -12,7 +12,4 @@
 
 #include "../includes/rush2.h"
 
-char	*ft_get_input(void)
-{
-  
-}
+char	*ft_get_input(void);
