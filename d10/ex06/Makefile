@@ -3,23 +3,29 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azaliaus <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: alfiumic <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/02/25 22:27:05 by azaliaus          #+#    #+#              #
-#    Updated: 2018/02/25 22:35:11 by azaliaus         ###   ########.fr        #
+#    Created: 2018/09/18 18:35:29 by alfiumic          #+#    #+#              #
+#    Updated: 2018/09/18 18:39:18 by alfiumic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = rush-2
-SOURCE = srcs/main.c srcs/files.c srcs/string.c srcs/helper.c \
-		 srcs/rush_finder.c srcs/rush_generator.c srcs/rush_validator.c
+# -*- MakeFile -*-
+
+NAME = do-op
+
+SOURCE = *.c
 
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Wextra -Werror $(SOURCE) -o $(NAME)
+	gcc -c $(SOURCE)
+	gcc -o $(NAME) *.o
 
-fclean:
+clean:
 	/bin/rm -f $(NAME)
 
-clean: fclean all
+fclean: clean
+	/bin/rm -f $(NAME)
+
+re: fclean all

@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfiumic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/17 19:28:02 by alfiumic          #+#    #+#             */
-/*   Updated: 2018/09/18 11:52:57 by alfiumic         ###   ########.fr       */
+/*   Created: 2018/09/18 11:23:50 by alfiumic          #+#    #+#             */
+/*   Updated: 2018/09/18 17:44:36 by alfiumic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int		*ft_map(int *tab, int length, int (*f)(int))
+int		ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	int		i;
-	int		*array;
+	int		j;
 
-	if (!(array = (int*)malloc(sizeof(int) * length)))
-		return (0);
 	i = 0;
-	while (i < length)
-	{
-		array[i] = (f)(tab[i]);
+	if (length <= 0)
+		return (1);
+	while (i  < length - 1 && (f)(tab[i], tab[i + 1]) >= 0)
 		i++;
-	}
-	return (array);
+	j = 0;
+	while (j < length - 1 && (f)(tab[j],tab[j + 1]) <= 0)
+		j++;
+	if (i == length - 1 || j == length - 1)
+		return (1);
+	return (0);
+}
+
+int        ultimatecomparator(int a, int b)
+{
+	if (a == b)
+		return 0;
+	else
+		return (a > b ? 1 : -1);
 }

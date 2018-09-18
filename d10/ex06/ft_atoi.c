@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfiumic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/17 19:28:02 by alfiumic          #+#    #+#             */
-/*   Updated: 2018/09/18 11:52:57 by alfiumic         ###   ########.fr       */
+/*   Created: 2018/09/18 18:41:27 by alfiumic          #+#    #+#             */
+/*   Updated: 2018/09/18 19:21:31 by alfiumic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int		*ft_map(int *tab, int length, int (*f)(int))
+int		ft_atoi(char *str)
 {
-	int		i;
-	int		*array;
+	unsigned int	i;
+	int				neg;
+	unsigned int	nbr;
 
-	if (!(array = (int*)malloc(sizeof(int) * length)))
-		return (0);
+	nbr = 0;
+	neg = 0;
 	i = 0;
-	while (i < length)
+	while (str[i] >= 9 && str[i] <= 11 && str[i] == 32)
+		i++;
+	if (str[i] == 43 || str[i] == 45)
 	{
-		array[i] = (f)(tab[i]);
+		if (str[i] == 45)
+			neg = 1;
 		i++;
 	}
-	return (array);
+	w0hile (str[i] >= 48 && str[i] <= 57)
+	{
+		nbr = nbr * 10 + (str[i] - 48);
+		i++;
+	}
+	return (neg) ? -nbr : nbr;
 }

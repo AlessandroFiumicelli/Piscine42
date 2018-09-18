@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_stock_par.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alfiumic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/17 19:28:02 by alfiumic          #+#    #+#             */
-/*   Updated: 2018/09/18 11:52:57 by alfiumic         ###   ########.fr       */
+/*   Created: 2018/09/13 18:45:20 by alfiumic          #+#    #+#             */
+/*   Updated: 2018/09/17 18:43:46 by alfiumic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef FT_STOCK_PAR_H
+# define FT_STOCK_PAR_H
+# include <stdlib.h>
 
-int		*ft_map(int *tab, int length, int (*f)(int))
+typedef	struct	s_stock_par
 {
-	int		i;
-	int		*array;
+	int		size_param;
+	char	*str;
+	char	*copy;
+	char	**tab;
+}				t_stock_par;
 
-	if (!(array = (int*)malloc(sizeof(int) * length)))
-		return (0);
-	i = 0;
-	while (i < length)
-	{
-		array[i] = (f)(tab[i]);
-		i++;
-	}
-	return (array);
-}
+void			ft_show_tab(struct s_stock_par *par);
+char			**ft_split_whitespaces(char *str);
+#endif
