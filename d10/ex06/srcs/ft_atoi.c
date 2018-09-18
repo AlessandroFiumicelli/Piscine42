@@ -19,7 +19,7 @@ int		ft_atoi(char *str)
 	nbr = 0;
 	neg = 0;
 	i = 0;
-	while (str[i] >= 9 && str[i] <= 11 && str[i] == 32)
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == 43 || str[i] == 45)
 	{
@@ -27,7 +27,7 @@ int		ft_atoi(char *str)
 			neg = 1;
 		i++;
 	}
-	w0hile (str[i] >= 48 && str[i] <= 57)
+	while (str[i] >= 48 && str[i] <= 57)
 	{
 		nbr = nbr * 10 + (str[i] - 48);
 		i++;

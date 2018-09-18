@@ -14,7 +14,7 @@
 
 NAME = do-op
 
-SOURCE = *.c
+SOURCE = srcs/*.c
 
 all: $(NAME)
 
@@ -23,7 +23,7 @@ $(NAME):
 	gcc -o $(NAME) *.o
 
 clean:
-	/bin/rm -f $(NAME)
+	/bin/rm *.o
 
 fclean: clean
 	/bin/rm -f $(NAME)
