@@ -6,7 +6,7 @@
 #    By: alfiumic <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/18 18:35:29 by alfiumic          #+#    #+#              #
-#    Updated: 2018/09/18 18:39:18 by alfiumic         ###   ########.fr        #
+#    Updated: 2018/09/19 11:58:43 by alfiumic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ SOURCE = srcs/*.c
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(SOURCE)
-	gcc -o $(NAME) *.o
+	gcc -c $(SOURCE) -Werror -Wall -Wextra
+	gcc -o $(NAME) -Werror -Wall -Wall *.o
 
 clean:
 	/bin/rm *.o
